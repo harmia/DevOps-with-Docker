@@ -42,7 +42,7 @@ You found the correct password. Secret message is:
 juhana.harmanen@G0475 ~ %
 
 
-# 1.4
+# 1.4 Docker is easy
 ## Submit the secret message and command(s) given as your answer.
 
 
@@ -80,4 +80,22 @@ Thu, 16 Apr 2020 20:14:35 GMT
 ^C
 root@787c74327243:/usr/app# exit
 exit
+juhana.harmanen@G0475 ~ %
+
+
+# 1.5 Docker exec -it 
+## This time return the command you used to start process and the command(s) you used to fix the ensuing problems.
+
+
+juhana.harmanen@G0475 ~ % docker exec -it 787c74327243 sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
 juhana.harmanen@G0475 ~ %

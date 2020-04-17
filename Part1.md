@@ -83,7 +83,7 @@ exit
 juhana.harmanen@G0475 ~ %
 
 
-# 1.5 Docker exec -it 
+# 1.5 Docker exec -it
 ## This time return the command you used to start process and the command(s) you used to fix the ensuing problems.
 
 
@@ -99,3 +99,26 @@ Searching..
 <p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
 </body></html>
 juhana.harmanen@G0475 ~ %
+
+
+# 1.6 Docker build -t docker-clock
+## Return both Dockerfile(s) and the command you used to run the container(s)
+
+
+juhana.harmanen@G0475 1.6 % docker build -t docker-clock .
+Sending build context to Docker daemon  2.048kB
+Step 1/2 : FROM devopsdockeruh/overwrite_cmd_exercise
+ ---> 3d2b622b1849
+Step 2/2 : CMD ["-c"]
+ ---> Running in 323e6c68c0fb
+Removing intermediate container 323e6c68c0fb
+ ---> 185c1536004d
+Successfully built 185c1536004d
+Successfully tagged docker-clock:latest
+juhana.harmanen@G0475 1.6 % docker run docker-clock       
+1
+2
+3
+4
+5
+juhana.harmanen@G0475 1.6 %

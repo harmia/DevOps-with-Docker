@@ -165,3 +165,24 @@ Wrote to file /usr/app/logs.txt
 Wrote to file /usr/app/logs.txt
 ^CClosing file
 juhana.harmanen@G0475 1.8 %
+
+
+# 1.9 Docker run -p 80:80
+## Submit your used commands for this exercise.
+
+juhana.harmanen@G0475 DevOps-with-Docker % docker run -p 80:80 devopsdockeruh/ports_exercise
+Unable to find image 'devopsdockeruh/ports_exercise:latest' locally
+latest: Pulling from devopsdockeruh/ports_exercise
+cd784148e348: Pull complete
+9abca35fefbf: Pull complete
+7fc670963d22: Pull complete
+893040f9bc16: Pull complete
+b0ae6401e570: Pull complete
+Digest: sha256:2ff93dd0c744aee7a8f00bc9558d09fd6279493da0d01769fe600f78fb4593f2
+Status: Downloaded newer image for devopsdockeruh/ports_exercise:latest
+
+> ports_exercise@1.0.0 start /usr/app
+> node index.js
+
+Listening on port 80, this means inside of the container. Use -p to map the port to a port of your local machine.
+^C%                                                                                                                             juhana.harmanen@G0475 DevOps-with-Docker %

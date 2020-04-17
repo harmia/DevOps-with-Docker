@@ -122,3 +122,30 @@ juhana.harmanen@G0475 1.6 % docker run docker-clock
 4
 5
 juhana.harmanen@G0475 1.6 %
+
+
+# 1.7 Docker build -t curler
+## Return both Dockerfile(s) and the command you used to run the container(s)
+
+
+juhana.harmanen@G0475 1.7 % docker build -t curler .
+Sending build context to Docker daemon  3.072kB
+Step 1/4 : FROM ubuntu
+ ---> 4e5021d210f6
+Step 2/4 : RUN apt-get update && apt-get install -y curl
+ ---> Running in e201a18d9598
+...
+Successfully built 9f9f5dbf69aa
+Successfully tagged curler:latest
+juhana.harmanen@G0475 1.7 % docker run -it curler   
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
+juhana.harmanen@G0475 1.7 %

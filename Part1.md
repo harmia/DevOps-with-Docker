@@ -2,29 +2,34 @@
 ## Submitting the output for docker ps -a is enough to prove this exercise has been done.
 
 
+```
 juhana.harmanen@G0475 ~ % docker ps -as
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS                          PORTS               NAMES                 SIZE
 a47a52b1224d        nginx               "nginx -g 'daemon of…"   About a minute ago   Up About a minute               80/tcp              confident_zhukovsky   2B (virtual 127MB)
 2f9cade70dac        nginx               "nginx -g 'daemon of…"   About a minute ago   Exited (0) About a minute ago                       angry_wiles           0B (virtual 127MB)
 16d74c698529        nginx               "nginx -g 'daemon of…"   About a minute ago   Exited (0) About a minute ago                       distracted_ellis      0B (virtual 127MB)
 juhana.harmanen@G0475 ~ %
+```
 
 
 # 1.2 Cleanup
 ## Submit the output for docker ps -a and docker images
 
 
+```
 juhana.harmanen@G0475 ~ % docker ps -a
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 juhana.harmanen@G0475 ~ % docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 juhana.harmanen@G0475 ~ %
+```
 
 
 # 1.3 Hello Docker Hub
 ## Submit the secret message and command(s) given to get it as your answer.
 
 
+```
 juhana.harmanen@G0475 ~ % docker run -it devopsdockeruh/pull_exercise
 Unable to find image 'devopsdockeruh/pull_exercise:latest' locally
 latest: Pulling from devopsdockeruh/pull_exercise
@@ -40,12 +45,14 @@ You found the correct password. Secret message is:
 "This is the secret message"
 
 juhana.harmanen@G0475 ~ %
+```
 
 
 # 1.4 Docker is easy
 ## Submit the secret message and command(s) given as your answer.
 
 
+```
 juhana.harmanen@G0475 ~ % docker run -d devopsdockeruh/exec_bash_exercise
 Unable to find image 'devopsdockeruh/exec_bash_exercise:latest' locally
 latest: Pulling from devopsdockeruh/exec_bash_exercise
@@ -81,12 +88,14 @@ Thu, 16 Apr 2020 20:14:35 GMT
 root@787c74327243:/usr/app# exit
 exit
 juhana.harmanen@G0475 ~ %
+```
 
 
 # 1.5 Docker exec -it
 ## This time return the command you used to start process and the command(s) you used to fix the ensuing problems.
 
 
+```
 juhana.harmanen@G0475 ~ % docker exec -it 787c74327243 sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
 Input website:
 helsinki.fi
@@ -99,12 +108,14 @@ Searching..
 <p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
 </body></html>
 juhana.harmanen@G0475 ~ %
+```
 
 
 # 1.6 Docker build -t docker-clock
 ## Return both Dockerfile(s) and the command you used to run the container(s)
 
 
+```
 juhana.harmanen@G0475 1.6 % docker build -t docker-clock .
 Sending build context to Docker daemon  2.048kB
 Step 1/2 : FROM devopsdockeruh/overwrite_cmd_exercise
@@ -122,12 +133,14 @@ juhana.harmanen@G0475 1.6 % docker run docker-clock
 4
 5
 juhana.harmanen@G0475 1.6 %
+```
 
 
 # 1.7 Docker build -t curler
 ## Return both Dockerfile(s) and the command you used to run the container(s)
 
 
+```
 juhana.harmanen@G0475 1.7 % docker build -t curler .
 Sending build context to Docker daemon  3.072kB
 Step 1/4 : FROM ubuntu
@@ -149,12 +162,14 @@ Searching..
 <p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
 </body></html>
 juhana.harmanen@G0475 1.7 %
+```
 
 
 # 1.8 Volume bind mount is easy
 ## Submit your used commands for this exercise.
 
 
+```
 juhana.harmanen@G0475 1.8 % docker run -v $(pwd)/logs.txt:/usr/app/logs.txt devopsdockeruh/first_volume_exercise
 (node:1) ExperimentalWarning: The fs.promises API is experimental
 Wrote to file /usr/app/logs.txt
@@ -165,11 +180,14 @@ Wrote to file /usr/app/logs.txt
 Wrote to file /usr/app/logs.txt
 ^CClosing file
 juhana.harmanen@G0475 1.8 %
+```
 
 
 # 1.9 Docker run -p 80:80
 ## Submit your used commands for this exercise.
 
+
+```
 juhana.harmanen@G0475 DevOps-with-Docker % docker run -p 80:80 devopsdockeruh/ports_exercise
 Unable to find image 'devopsdockeruh/ports_exercise:latest' locally
 latest: Pulling from devopsdockeruh/ports_exercise
@@ -186,11 +204,14 @@ Status: Downloaded newer image for devopsdockeruh/ports_exercise:latest
 
 Listening on port 80, this means inside of the container. Use -p to map the port to a port of your local machine.
 ^C%                                                                                                                             juhana.harmanen@G0475 DevOps-with-Docker %
+```
 
 
 # 1.10 Frontend
 ## Submit the Dockerfile.
 
+
+```
 juhana.harmanen@G0475 1.10 % docker build -t frontend-1.10 .    
 Sending build context to Docker daemon  585.7kB
 Step 1/12 : FROM node:alpine
@@ -235,12 +256,14 @@ INFO: Accepting connections at http://localhost:5000
 ^C
 INFO: Gracefully shutting down. Please wait...
 juhana.harmanen@G0475 1.10 %
+```
 
 
 # 1.11 Backend
 ## Submit the Dockerfile and the command used.
 
 
+```
 juhana.harmanen@G0475 1.11 % docker build -t backend-1.11 .                         
 Sending build context to Docker daemon  196.6kB
 Step 1/10 : FROM node:alpine
@@ -282,3 +305,4 @@ juhana.harmanen@G0475 1.11 % docker run -p 8000:8000 -v $(pwd)/logs.txt:/usr/app
 Browserslist: caniuse-lite is outdated. Please run next command `npm update caniuse-lite browserslist`
 Started on port 8000
 ^C%                                                                                                                             juhana.harmanen@G0475 1.11 %
+```

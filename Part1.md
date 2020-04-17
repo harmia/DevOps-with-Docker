@@ -186,3 +186,52 @@ Status: Downloaded newer image for devopsdockeruh/ports_exercise:latest
 
 Listening on port 80, this means inside of the container. Use -p to map the port to a port of your local machine.
 ^C%                                                                                                                             juhana.harmanen@G0475 DevOps-with-Docker %
+
+
+# 1.10 Frontend
+## Submit the Dockerfile.
+
+juhana.harmanen@G0475 1.10 % docker build -t frontend-1.10 .    
+Sending build context to Docker daemon  585.7kB
+Step 1/12 : FROM node:alpine
+ ---> bcfeabd22749
+Step 2/12 : WORKDIR /usr/app
+ ---> Using cache
+ ---> f2f7b365d628
+Step 3/12 : COPY ./package*.json ./
+ ---> Using cache
+ ---> b8749a9c85e0
+Step 4/12 : RUN npm install
+ ---> Using cache
+ ---> 09f84f899d7d
+Step 5/12 : COPY ./src ./src
+ ---> Using cache
+ ---> b33437e2ead5
+Step 6/12 : COPY ./util ./util
+ ---> Using cache
+ ---> f06245100a2c
+Step 7/12 : COPY ./config.js ./config.js
+ ---> Using cache
+ ---> 7e32da42dc96
+Step 8/12 : COPY ./webpack.config.js ./webpack.config.js
+ ---> Using cache
+ ---> 4f7ce4576575
+Step 9/12 : RUN npm run build
+ ---> Using cache
+ ---> e99b0c911c4c
+Step 10/12 : RUN npm install -g serve
+ ---> Using cache
+ ---> ebb01dab5670
+Step 11/12 : CMD serve -s -l 5000 dist
+ ---> Using cache
+ ---> 1a798bfd046a
+Step 12/12 : EXPOSE 5000
+ ---> Using cache
+ ---> f01dda717a7f
+Successfully built f01dda717a7f
+Successfully tagged frontend-1.10:latest
+juhana.harmanen@G0475 1.10 % docker run -p 5000:5000 frontend-1.10
+INFO: Accepting connections at http://localhost:5000
+^C
+INFO: Gracefully shutting down. Please wait...
+juhana.harmanen@G0475 1.10 %

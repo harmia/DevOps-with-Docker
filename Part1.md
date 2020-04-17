@@ -149,3 +149,19 @@ Searching..
 <p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
 </body></html>
 juhana.harmanen@G0475 1.7 %
+
+
+# 1.8 Volume bind mount is easy
+## Submit your used commands for this exercise.
+
+
+juhana.harmanen@G0475 1.8 % docker run -v $(pwd)/logs.txt:/usr/app/logs.txt devopsdockeruh/first_volume_exercise
+(node:1) ExperimentalWarning: The fs.promises API is experimental
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
+^CClosing file
+juhana.harmanen@G0475 1.8 %

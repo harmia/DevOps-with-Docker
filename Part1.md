@@ -235,3 +235,50 @@ INFO: Accepting connections at http://localhost:5000
 ^C
 INFO: Gracefully shutting down. Please wait...
 juhana.harmanen@G0475 1.10 %
+
+
+# 1.11 Backend
+## Submit the Dockerfile and the command used.
+
+
+juhana.harmanen@G0475 1.11 % docker build -t backend-1.11 .                         
+Sending build context to Docker daemon  196.6kB
+Step 1/10 : FROM node:alpine
+ ---> bcfeabd22749
+Step 2/10 : WORKDIR /usr/app
+ ---> Using cache
+ ---> f2f7b365d628
+Step 3/10 : COPY ./package*.json ./
+ ---> Using cache
+ ---> 92edadd1e450
+Step 4/10 : RUN npm install
+ ---> Using cache
+ ---> cf9ecf53155e
+Step 5/10 : COPY ./server ./server
+ ---> Using cache
+ ---> 061120e0579a
+Step 6/10 : COPY ./config.js ./config.js
+ ---> Using cache
+ ---> 1441dde84098
+Step 7/10 : COPY ./index.js ./index.js
+ ---> Using cache
+ ---> bdf2fb487b68
+Step 8/10 : VOLUME ./logs.txt
+ ---> Using cache
+ ---> c5ffd4985ac3
+Step 9/10 : CMD npm start
+ ---> Using cache
+ ---> d5e4af4e5992
+Step 10/10 : EXPOSE 8000
+ ---> Using cache
+ ---> ffb24cc1da08
+Successfully built ffb24cc1da08
+Successfully tagged backend-1.11:latest
+juhana.harmanen@G0475 1.11 % docker run -p 8000:8000 -v $(pwd)/logs.txt:/usr/app/logs.txt backend-1.11
+
+> backend-example-docker@1.0.0 start /usr/app
+> cross-env NODE_ENV=production node index.js
+
+Browserslist: caniuse-lite is outdated. Please run next command `npm update caniuse-lite browserslist`
+Started on port 8000
+^C%                                                                                                                             juhana.harmanen@G0475 1.11 %

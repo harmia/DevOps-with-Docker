@@ -40,3 +40,44 @@ You found the correct password. Secret message is:
 "This is the secret message"
 
 juhana.harmanen@G0475 ~ %
+
+
+# 1.4
+## Submit the secret message and command(s) given as your answer.
+
+
+juhana.harmanen@G0475 ~ % docker run -d devopsdockeruh/exec_bash_exercise
+Unable to find image 'devopsdockeruh/exec_bash_exercise:latest' locally
+latest: Pulling from devopsdockeruh/exec_bash_exercise
+741437d97401: Already exists
+34d8874714d7: Already exists
+0a108aa26679: Already exists
+7f0334c36886: Already exists
+65c95cb8b3be: Already exists
+a36b708560f8: Already exists
+4090f912e6c7: Already exists
+ce5fe2607c2e: Already exists
+9400f5f657d6: Already exists
+c4919883f7fa: Already exists
+Digest: sha256:c463832132d1fb0b8b3b60348a6fc36fda7512a4ef2d1050e8bea7b6a6d7a2f3
+Status: Downloaded newer image for devopsdockeruh/exec_bash_exercise:latest
+787c74327243ad266b8c33ab49216b81af02e210dbfb8fb8b0269d921db94301
+juhana.harmanen@G0475 ~ % docker exec -it 787c74327243 bash
+root@787c74327243:/usr/app# tail -f ./logs.txt
+Thu, 16 Apr 2020 20:14:05 GMT
+Secret message is:
+"Docker is easy"
+Thu, 16 Apr 2020 20:14:11 GMT
+Thu, 16 Apr 2020 20:14:14 GMT
+Thu, 16 Apr 2020 20:14:17 GMT
+Thu, 16 Apr 2020 20:14:20 GMT
+Secret message is:
+"Docker is easy"
+Thu, 16 Apr 2020 20:14:26 GMT
+Thu, 16 Apr 2020 20:14:29 GMT
+Thu, 16 Apr 2020 20:14:32 GMT
+Thu, 16 Apr 2020 20:14:35 GMT
+^C
+root@787c74327243:/usr/app# exit
+exit
+juhana.harmanen@G0475 ~ %

@@ -402,3 +402,15 @@ juhana.harmanen@G0475 backend % docker run -p 8000:8000 -v $(pwd)/logs.txt:/usr/
 Browserslist: caniuse-lite is outdated. Please run next command `npm update caniuse-lite browserslist`
 Started on port 8000
 ```
+
+
+# 1.13 Spring
+## Submit the edited Dockerfiles and commands used to run.
+
+```
+juhana.harmanen@G0475 1.13 % docker build -t spring-1.13 .      
+```
+
+```
+juhana.harmanen@G0475 1.13 % docker run -p 8080:8080 spring-1.13
+```

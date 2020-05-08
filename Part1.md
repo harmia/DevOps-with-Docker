@@ -432,3 +432,25 @@ juhana.harmanen@G0475 1.15 % docker run -p 80:80 dockerhub-1.15
 ```
 
 https://hub.docker.com/repository/docker/harmia/dockerhub-1.15
+
+
+# 1.16 Heroku
+## For this exercise return the url in which the released application is.
+
+
+```
+juhana.harmanen@G0475 1.16 % docker pull devopsdockeruh/heroku-example
+
+juhana.harmanen@G0475 1.16 % heroku login
+
+juhana.harmanen@G0475 1.16 % heroku container:login
+
+juhana.harmanen@G0475 1.16 % docker tag devopsdockeruh/heroku-example registry.heroku.com/devopswithdocker-116/web
+
+juhana.harmanen@G0475 1.16 % docker push registry.heroku.com/devopswithdocker-116/web
+
+juhana.harmanen@G0475 1.16 % heroku container:release web                                                         
+
+```
+
+https://devopswithdocker-116.herokuapp.com/

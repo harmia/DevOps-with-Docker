@@ -413,10 +413,22 @@ juhana.harmanen@G0475 1.13 % docker run -p 8080:8080 spring-1.13
 ```
 
 
-## 1.14 rails
-##
+# 1.14 Rails
+## Submit the edited Dockerfiles and commands used to run.
 
 ```
 juhana.harmanen@G0475 1.14 % docker build -t rails-1.14 .
 juhana.harmanen@G0475 1.14 % docker run -p 3000:3000 rails-1.14
 ```
+
+
+# 1.15 Docker Hub
+## Submit the edited Dockerfiles and commands used to run.
+
+```
+juhana.harmanen@G0475 1.15 % docker build -t dockerhub-1.15 .
+juhana.harmanen@G0475 1.15 % docker run -p 80:80 dockerhub-1.15
+
+```
+
+https://hub.docker.com/repository/docker/harmia/dockerhub-1.15

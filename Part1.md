@@ -306,3 +306,99 @@ Browserslist: caniuse-lite is outdated. Please run next command `npm update cani
 Started on port 8000
 ^C%                                                                                                                             juhana.harmanen@G0475 1.11 %
 ```
+
+
+# 1.12 Frontend + Backend
+## Submit the edited Dockerfiles and commands used to run.
+
+```
+juhana.harmanen@G0475 frontend % docker build -t frontend-1.12 .                             
+Sending build context to Docker daemon  585.2kB
+Step 1/13 : FROM node:alpine
+ ---> bcfeabd22749
+Step 2/13 : WORKDIR /usr/app
+ ---> Using cache
+ ---> f2f7b365d628
+Step 3/13 : COPY ./package*.json ./
+ ---> Using cache
+ ---> b8749a9c85e0
+Step 4/13 : RUN npm install
+ ---> Using cache
+ ---> 09f84f899d7d
+Step 5/13 : COPY ./src ./src
+ ---> Using cache
+ ---> b33437e2ead5
+Step 6/13 : COPY ./util ./util
+ ---> Using cache
+ ---> f06245100a2c
+Step 7/13 : COPY ./config.js ./config.js
+ ---> Using cache
+ ---> 7e32da42dc96
+Step 8/13 : COPY ./webpack.config.js ./webpack.config.js
+ ---> Using cache
+ ---> 4f7ce4576575
+Step 9/13 : ENV API_URL=http://localhost:8000
+ ---> Using cache
+ ---> 91674903d976
+Step 10/13 : RUN npm run build
+ ---> Using cache
+ ---> c9bf6a8add88
+Step 11/13 : RUN npm install -g serve
+ ---> Using cache
+ ---> bca1e5fc9038
+Step 12/13 : CMD serve -s -l 5000 dist
+ ---> Using cache
+ ---> 4674ceb56294
+Step 13/13 : EXPOSE 5000
+ ---> Using cache
+ ---> 715a5ba02709
+Successfully built 715a5ba02709
+Successfully tagged frontend-1.12:latest
+juhana.harmanen@G0475 frontend % docker run -p 5000:5000 frontend-1.12
+INFO: Accepting connections at http://localhost:5000
+```
+```
+juhana.harmanen@G0475 backend % docker build -t backend-1.12 .
+Sending build context to Docker daemon  196.1kB
+Step 1/11 : FROM node:alpine
+ ---> bcfeabd22749
+Step 2/11 : WORKDIR /usr/app
+ ---> Using cache
+ ---> f2f7b365d628
+Step 3/11 : COPY ./package*.json ./
+ ---> Using cache
+ ---> 92edadd1e450
+Step 4/11 : RUN npm install
+ ---> Using cache
+ ---> cf9ecf53155e
+Step 5/11 : COPY ./server ./server
+ ---> Using cache
+ ---> 061120e0579a
+Step 6/11 : COPY ./config.js ./config.js
+ ---> Using cache
+ ---> 1441dde84098
+Step 7/11 : COPY ./index.js ./index.js
+ ---> Using cache
+ ---> bdf2fb487b68
+Step 8/11 : VOLUME ./logs.txt
+ ---> Using cache
+ ---> c5ffd4985ac3
+Step 9/11 : ENV FRONT_URL=http://localhost:5000
+ ---> Using cache
+ ---> d1f830b7db4a
+Step 10/11 : CMD npm start
+ ---> Using cache
+ ---> ad900b5ddb5d
+Step 11/11 : EXPOSE 8000
+ ---> Using cache
+ ---> eebd163e5f33
+Successfully built eebd163e5f33
+Successfully tagged backend-1.12:latest
+juhana.harmanen@G0475 backend % docker run -p 8000:8000 -v $(pwd)/logs.txt:/usr/app/logs.txt backend-1.12
+
+> backend-example-docker@1.0.0 start /usr/app
+> cross-env NODE_ENV=production node index.js
+
+Browserslist: caniuse-lite is outdated. Please run next command `npm update caniuse-lite browserslist`
+Started on port 8000
+```

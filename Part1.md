@@ -409,8 +409,14 @@ Started on port 8000
 
 ```
 juhana.harmanen@G0475 1.13 % docker build -t spring-1.13 .      
+juhana.harmanen@G0475 1.13 % docker run -p 8080:8080 spring-1.13
 ```
 
+
+## 1.14 rails
+##
+
 ```
-juhana.harmanen@G0475 1.13 % docker run -p 8080:8080 spring-1.13
+juhana.harmanen@G0475 1.14 % docker build -t rails-1.14 .
+juhana.harmanen@G0475 1.14 % docker run -p 3000:3000 rails-1.14
 ```
